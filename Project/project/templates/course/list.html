@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/static/css/bootstrap.css"/>
+<link rel="stylesheet" href="/stactic/css/bootstrap-theme.css"/>
+
+<div class="container-fluid">
+    <div class="page-header">
+        <h1> Admin's Page </h1>
+    </div>
+    <div class="row content">
+        {% include '/layout/leftadmin.html' %}
+
+        <div class="col-sm-10">
+            <h4>
+                <small>List Course</small>
+            </h4>
+            <hr>
+           <table class="table table-striped">
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Action</th>
+
+    </tr>
+    {% for student in c.studentall %}
+    <tr>
+        <td>{{student.id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.code}}</td>
+        {% if h.auth.authorized(h.auth.has_admin_role) %}
+        <td><a href="{{h.url(controller='courses', action='delete', id=student.id)}}" class="btn btn-danger btn-xs">
+                        <span class="glyphicon glyphicon-remove"></span> Delete
+                    </a></td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+
+        </div>
+    </div>
+</div>
+
