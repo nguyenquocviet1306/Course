@@ -11,7 +11,10 @@ class Users(Base):
     password = Column('password',String(100))
     group_id = Column('group_uid',Integer)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
     courses = relationship("Course",
                            secondary='association',
                            backref="users")

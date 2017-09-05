@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 import hashlib
 import logging
 
 
+=======
+import logging
+
+>>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
 import formencode
 from pylons import request, response, session, tmpl_context as c, url
 from pylons.controllers.util import abort, redirect
@@ -10,8 +15,11 @@ from pylons.decorators.rest import restrict
 import project.lib.helpers as h
 from formencode import htmlfill
 from pylons.decorators import validate
+<<<<<<< HEAD
 
 from project import model
+=======
+>>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
 from project.model import *
 from array import array
 from flask import Flask
@@ -38,6 +46,7 @@ class StudentsController(BaseController):
     @restrict('POST')
     @validate(schema=NewFormStudent(), form='new')
     def create(self):
+<<<<<<< HEAD
         name = request.params['name']
         email = request.params['email']
         password = request.params['password']
@@ -53,6 +62,19 @@ class StudentsController(BaseController):
         return "OK"
 
 
+=======
+        email = request.params['email']
+        password = request.params['password']
+        groupid = 2
+        a = Users()
+        a.email = email
+        a.password = password
+        a.group_id = groupid
+        Session.add(a)
+        Session.commit()
+        return "OK"
+
+>>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
     def new(self):
         return render_jinja2('/students/new.html')
 
@@ -64,14 +86,21 @@ class StudentsController(BaseController):
         return render_jinja2('/students/list.html')
 
     def show(self, id, format='html'):
+<<<<<<< HEAD
         c.course = Session.query(Course).all()
+=======
+>>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
         c.student = Session.query(Users).filter_by(id = id).first()
         if not c.student:
             abort(404, '404 Not Found')
         c.student_courses = Session.query(association_table).filter_by(user_id=c.student.id).all()
         print (c.student_courses)
         print ("AAAAAAA")
+<<<<<<< HEAD
         #print (c.student.courses)
+=======
+        print (c.student.courses)
+>>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
 
         #course = Course()
         #c.array1 = []
@@ -113,6 +142,7 @@ class StudentsController(BaseController):
         session.save()
         return "Moved temporarily"
 
+<<<<<<< HEAD
     @restrict('GET')
     def active(self):
         token = request.params['token']
@@ -125,6 +155,9 @@ class StudentsController(BaseController):
             return "Da active"
         else:
             return "Chua active"
+=======
+
+>>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
 
 
 

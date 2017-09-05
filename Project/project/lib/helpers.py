@@ -10,6 +10,7 @@ from webhelpers.html.tags import *
 from pylons import url
 from webhelpers.html.tags import link_to
 from project.lib import auth
+<<<<<<< HEAD
 import hashlib
 import urllib
 
@@ -31,3 +32,7 @@ def send_mail(SUBJECT, BODY,TO):
     server.sendmail(gmail_name, TO, msg.as_string())
     server.close()
     print ("sent")
+=======
+
+
+>>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97

@@ -26,7 +26,11 @@
                 {% for student in c.studentall %}
                 <tr>
                     <td>{{student.id}}</td>
+<<<<<<< HEAD
                     <td>{{student.user_info.name}}</td>
+=======
+                    <td>{{student.name}}</td>
+>>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
                     <td>{{student.email}}</td>
                     <td><a href="/students/show/{{student.id}}">View</a></td>
                 </tr>
