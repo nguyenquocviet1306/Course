@@ -1,0 +1,21 @@
+<p>Editing infomation for {{c.student.name}}</p>
+{{h.form(h.url(controller='students', action='save',
+    id=request.urlvars['id']), method="post")}}
+
+<form role="form">
+    <div class="form-group">
+    <label for="user">Username </label>
+    <input type="text" class="form-control" id="user" placeholder="Enter username" name="name">
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" >
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+  </div>
+
+  <button type="submit" class="btn btn-default">Save Change</button>
+</form>
+{{h.end_form()}}

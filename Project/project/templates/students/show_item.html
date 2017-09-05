@@ -1,0 +1,103 @@
+<link rel="stylesheet" href="/static/css/bootstrap.css"/>
+<link rel="stylesheet" href="/stactic/css/bootstrap-theme.css"/>
+
+<head>
+    <style>
+        /* Set gray background color and 100% height */
+        .row.content {
+            height: 1500px
+        }
+
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav">
+            <h1> Hello {{c.student.user_info.name}}! </h1>
+            <h4>Username : {{c.student.user_info.name}}</h4>
+            <h4>Email : {{c.student.email}}</h4><br>
+            <li><a href="{{h.url(controller='account', action='signout')}}"> Sign out</a></li>
+
+        </div>
+        <div class="col-sm-9">
+            <hr>
+            <h4>
+                <small>Registered Courses</small>
+            </h4>
+            <hr>
+            <table class="table table-striped">
+                <tr>
+
+                    <th>Name 's Course</th>
+                    <th>Code</th>
+                    <th>Action</th>
+                </tr>
+                {% for course in c.student.courses %}
+                <tr>
+                    
+                    <td>{{course.name}}</td>
+                    <td>{{course.code}}</td>
+                    <td><a href="#">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <hr>
+            {% if not h.auth.authorized(h.auth.has_admin_role) %}
+            <h4>
+                <small>More</small>
+            </h4>
+            <hr>
+            <div class="col-sm-5">
+                {{ h.form(h.url(controller='register', action='create'), method="POST") }}
+            Code : {{h.text('code', class="form-control")}}
+            <br>
+            {{h.submit(value="Register", name='submit', class="form-control")}}
+            {{h.end_form()}}
+            </div>
+            {% endif %}
+
+            <table class="table table-striped">
+                <tr>
+
+                    <th>Name 's Course</th>
+                    <th>Code</th>
+
+                </tr>
+                {% for course in c.course %}
+                <tr>
+
+                    <td>{{course.name}}</td>
+                    <td>{{course.code}}</td>
+
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
