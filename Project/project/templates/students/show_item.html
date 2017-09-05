@@ -18,13 +18,11 @@
 <div class="container-fluid">
     <div class="row content">
         <div class="col-sm-3 sidenav">
-<<<<<<< HEAD
+
             <h1> Hello {{c.student.user_info.name}}! </h1>
             <h4>Username : {{c.student.user_info.name}}</h4>
-=======
             <h1> Hello {{c.student.name}} </h1>
             <h4>Username : {{c.student.name}}</h4>
->>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
             <h4>Email : {{c.student.email}}</h4><br>
             <li><a href="{{h.url(controller='account', action='signout')}}"> Sign out</a></li>
 
@@ -37,22 +35,18 @@
             <hr>
             <table class="table table-striped">
                 <tr>
-<<<<<<< HEAD
 
-=======
                     <th>STT</th>
->>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
+
                     <th>Name 's Course</th>
                     <th>Code</th>
                     <th>Action</th>
                 </tr>
                 {% for course in c.student.courses %}
                 <tr>
-<<<<<<< HEAD
-                    
-=======
+
                     <td>{{course.id}}</td>
->>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
+
                     <td>{{course.name}}</td>
                     <td>{{course.code}}</td>
                     <td><a href="#">Delete</a></td>
@@ -60,10 +54,9 @@
                 {% endfor %}
             </table>
             <hr>
-<<<<<<< HEAD
+
             {% if not h.auth.authorized(h.auth.has_admin_role) %}
-=======
->>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
+
             <h4>
                 <small>More</small>
             </h4>
@@ -75,7 +68,7 @@
             {{h.submit(value="Register", name='submit', class="form-control")}}
             {{h.end_form()}}
             </div>
-<<<<<<< HEAD
+
             {% endif %}
 
             <table class="table table-striped">
@@ -94,8 +87,7 @@
                 </tr>
                 {% endfor %}
             </table>
-=======
->>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
+
 
         </div>
     </div>

@@ -34,13 +34,11 @@ class RegisterController(BaseController):
         else:
             student.courses.append(course)
             Session.commit()
-<<<<<<< HEAD
+
             return redirect(url(controller='students', action='show', id = student.id))
 
     def delete(self):
         Session.delete(Session.query(model.association_table).filter(model.association_table.id == id).one())
         Session.commit()
-        return redirect(url(controller='students', action='show', id = student.id))
-=======
-            print ('Dang ki thanh cong')
->>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
+        return redirect(url(controller='students', action='show'))
+

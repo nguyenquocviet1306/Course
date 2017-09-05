@@ -36,7 +36,7 @@ class AccountController(BaseController):
                     print ("dang nhap roi")
                     session['user'] = user
                     session.save()
-<<<<<<< HEAD
+
                     print (user.email)
                     if (user.email == 'admin@gmail.com'):
                         return redirect(h.url('signedin'))
@@ -48,9 +48,8 @@ class AccountController(BaseController):
                             session.delete()
                             return render_jinja2('/layout/not_active.html')
 
-=======
                     print (user)
->>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
+
                 else:
                     return render_jinja2('/account/singin.html')
             else:
@@ -58,7 +57,7 @@ class AccountController(BaseController):
                 return render_jinja2('/account/singin.html')
         else:
             print ("vao 2")
-<<<<<<< HEAD
+
             c.user_group = Session.query(Users).filter_by(email=request.environ['REMOTE_USER']).first()
             print ("AABBBB")
             print (c.user_group.email == 'admin@gmail.com')
@@ -71,7 +70,7 @@ class AccountController(BaseController):
                 else:
                     session.delete()
                     return render_jinja2('/layout/not_active.html')
-=======
+
             user_group = Session.query(Users).filter_by(email=request.environ['REMOTE_USER']).first()
             print ("AABBBB")
             print (user_group.email == 'admin@gmail.com')
@@ -80,7 +79,6 @@ class AccountController(BaseController):
                 #return redirect(url(controller='courses', action='index'))
             else :
                 return redirect(url(controller='students', action='show', id = user_group.id))
->>>>>>> c080db6552c22b175d87a4973cb1a84173fb9f97
 
     @authorize(ValidAuthKitUser())
     def signout(self):
